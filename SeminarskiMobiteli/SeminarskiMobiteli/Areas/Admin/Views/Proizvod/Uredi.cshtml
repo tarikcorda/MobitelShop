@@ -1,0 +1,22 @@
+﻿@model SeminarskiMobiteli.ViewModel.ProizvodDetaljiVM
+
+
+<form asp-action="SnimiUredi">
+	<input asp-for="ProizvodId" hidden />
+	<div class="form-group">
+		<label>Kolicina :</label>
+		<div>
+			<input class="form-control" asp-for="Kolicina" value="">
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		<label>Cijena :</label>
+		<div>
+			<input class="form-control" asp-for="Cijena" value="">
+		</div>
+	</div>
+	<input type="submit" value="Snimi promjene" />
+
+</form>

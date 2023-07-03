@@ -1,0 +1,52 @@
+﻿@model SeminarskiMobiteli.ViewModel.RecenzijaKorisnikVM
+
+<div style="margin: 10%;">
+	
+	
+<strong style=" font-family: Castellar;
+        margin-left:29%;
+        margin-bottom:20px;
+        font-size: 30px;"		
+						>
+	Recenzije za proizvod
+</strong>
+ 
+
+
+<table class="table table-striped" style="width:60%; margin-left:20%; margin-top:30px;">
+	 
+	<thead>
+		<tr>
+			<td>Komentar :</td>
+			<td>Ocjena :</td>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var x in Model.rows)
+		{
+
+	<tr>
+		<td style="color:Highlight; font-size:18px; ">@x.Komentar</td>
+
+		<td style="color:Highlight; font-size:18px;">@x.Ocjena</td>
+	 
+
+
+	</tr>
+		 
+		}
+	</tbody>
+		 
+</table>
+
+<div>
+	<div class="input-group">
+		<h3 style="margin-left:30%; padding:1%; text-align:center; font-size:30px; color:Highlight;">Prosječna ocjena: @Math.Round(@Model.procjecnaOcjena,2) </h3>
+
+		<a asp-area="Korisnik" asp-controller="Recenzija" asp-action="Dodaj" asp-route-id="@Model.id" class="btn btn-success" style="margin:1%;">Dodaj</a>
+
+</div>
+</div>
+
+
+</div>

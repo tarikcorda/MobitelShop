@@ -1,0 +1,63 @@
+﻿@model SeminarskiMobiteli.ViewModel.KorisnikDetaljiVM
+
+<div action="/Korisnik/Detalji">
+
+	<div>
+
+	 
+	<div class="form-group">
+		<label>Ime :</label>
+		<div>
+			<input type="text" name="ime" class="form-control" readonly value="@Model.ime"/>
+		</div>
+
+	</div>
+	<div class="form-group">
+		<label>Prezime :</label>
+		<div>
+			<input type="text" name="prezime" class="form-control" readonly value="@Model.prezime" />
+		</div>
+
+	</div>
+
+	<div class="form-group">
+		<label>Datum registracije :</label>
+		<div>
+			<input type="text" name="datum" class="form-control"  readonly value="@Model.datum"/>
+		</div>
+
+	</div>
+
+	<div class="form-group">
+		<label>Spol :</label>
+		<div>
+			<input type="text" name="spol" class="form-control" readonly value="@Model.spol"/>
+		</div>
+
+	</div>
+	</div class="form-group">
+		<label>Korisnicko ime :</label>
+		<div>
+			<input type="text" name="spol" class="form-control" readonly value="@Model.KorisnickoIme"/>
+		</div>
+
+	</div>
+
+	</div class="form-group">
+		<label>Lozinka :</label>
+		<div>
+			<input type="text" name="spol" class="form-control" readonly value="@Model.Lozinka"/>
+		</div>
+
+	</div>
+
+	 
+	
+	 
+
+	<a href="/Korisnik/Back" class="btn btn-secondary">Back</a>
+
+	 
+
+</div>
+

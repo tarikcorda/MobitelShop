@@ -1,0 +1,81 @@
+﻿@model SeminarskiMobiteli.ViewModel.ProizvodDodajVM
+
+
+<form asp-action="Snimi">
+
+
+
+    <div class="form-group">
+        <label>Uvoznik :</label>
+        <div>
+            <select class="form-control" asp-for="UvoznikId" asp-items="@Model.Uvoznik"></select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Cijena :</label>
+        <div>
+            <input type="number" name="Cijena" class="form-control" />
+        </div>
+
+    </div>
+    <div class="form-group">
+        <label>Kolicina :</label>
+        <div>
+            <input type="number" name="Kolicina" class="form-control" />
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <label>Naziv :</label>
+        <div>
+            <input type="text" name="Naziv" class="form-control" />
+        </div>
+
+    </div>
+    <div class="form-group">
+        <label>Ram memorija :</label>
+        <div>
+            <input type="text" name="RAMMemorija" class="form-control" />
+        </div>
+
+    </div>
+    <div class="form-group">
+        <label>Interna memorija :</label>
+        <div>
+            <input type="text" name="Memorija" class="form-control" />
+        </div>
+
+    </div>
+    <div class="form-group">
+        <label>Velicina ekrana :</label>
+        <div>
+            <input type="text" name="VelicinaEkrana" class="form-control" />
+        </div>
+
+    </div>
+    <div class="form-group">
+        <label>Kamera :</label>
+        <div>
+            <input type="text" name="Kamera" class="form-control" />
+        </div>
+
+    </div>
+    <div class="form-group">
+        <label>Kategorija :</label>
+        <div>
+            <select class="form-control" asp-for="KategorijaId" asp-items="@Model.Kategorija"></select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Proizvodjac :</label>
+        <div>
+            <select class="form-control" asp-for="ProizvodjacId" asp-items="@Model.Proizvodjac"></select>
+        </div>
+    </div>
+
+
+
+    <input type="submit" value="Snimi" class="btn btn-success" />
+
+</form>

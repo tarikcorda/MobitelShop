@@ -1,0 +1,48 @@
+﻿@model SeminarskiMobiteli.ViewModel.KorpaIndexVM
+
+<table class="table table-striped">
+	
+	<thead>
+		<tr>
+			<th>Slika</th>
+			<th>Naziv</th>
+			<th>Cijena</th>
+			<th>Kolicina</th>
+			<th>Ukupno</th>
+			
+
+
+		</tr>
+
+	</thead>
+	<tbody>
+		
+		@foreach (var x in Model.Rows)
+		{
+			
+
+			<tr>
+				
+				<td><img src="~/Slike/@x.Slika" width="75" height="75" class="img rounded-circle"/></td>
+				<td>@x.Naziv</td>
+				
+				<td>@x.Cijena</td>
+				<td><button data-id="@x.ProizvodId"  class="btn KorpaProizvodKolicinaPlus"><i class="fa fa-plus"></i></button><input asp-for="@x.Kolicina" type="number"    readonly  /><button class="btn KorpaProizvodKolicinaMinus" data-id="@x.ProizvodId"><i class="fa fa-minus"></i></button></td>
+				<td><input value="@(x.Kolicina*x.Cijena)"  readonly /></td>
+				<td><form asp-area="" asp-controller="Korpa" asp-action="Izbrisi" method="post">
+					<input name="ProizvodId" value="@x.ProizvodId" hidden>
+				<input type="submit" value="Izbrisi" class="btn btn-danger">
+				</form>
+				</td>
+				
+			</tr>
+			
+				
+		}
+		
+					
+				
+	</tbody>
+	
+</table>
+<a asp-controller="Proizvod" asp-area="Korisnik" asp-action="Narudzba" class="btn btn-success">Naruci</a>

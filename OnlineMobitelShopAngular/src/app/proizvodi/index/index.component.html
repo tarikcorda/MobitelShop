@@ -1,0 +1,28 @@
+
+<input type="text" [(ngModel)]="pretraga" />
+<button class="btn btn-primary" (click)="pretrazi()">Pretrazi</button>  
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Naziv</th>
+        <th scope="col">Cijena</th>
+        <th scope="col">Kategorija</th>
+        <th scope="col">Izbrisi</th>
+      </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngIf="proizvodi">
+        <tr *ngFor="let item of proizvodi.rows">
+       
+            <td>{{item.naziv}}</td>
+            <td>{{item.cijena}}</td>
+            <td>{{item.kategorija}}</td>
+            <td><button class="btn btn-danger" (click)="izbrisi(item.mobitelId)">Izbrisi</button></td>
+            <td><button class="btn btn-primary" (click)="Uredi(item.mobitelId)">Uredi</button></td>
+          </tr>
+    </ng-container>
+      
+     
+    </tbody>
+  </table>
+  <a class="btn btn-danger" routerLink="../dodaj">Dodaj</a>

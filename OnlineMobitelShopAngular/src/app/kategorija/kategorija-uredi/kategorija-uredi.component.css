@@ -1,0 +1,21 @@
+.kategorija-ured-wrapper{
+    padding: 10px;
+    align-self: auto;
+    text-align: center;
+    margin: 10px;
+    
+}
+
+.btn-primary {
+    margin: 0 20px 0 20px;
+}
+
+.btn-success {
+    padding: 2px 35px 2px 35px;
+}
+
+input {
+    width: 45%;
+    margin: 10px;
+    border-radius: 5px;
+}

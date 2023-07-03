@@ -1,0 +1,26 @@
+<div class="index-wrapper">
+    <input type="text" [(ngModel)]="pretraga" />
+    <button class="btn btn-primary" (click)="pretrazi()">Pretrazi</button>  
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Naziv</th>
+                <th scope="col">Izbrisi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngIf="kategorija">
+                <tr *ngFor="let item of kategorija.rows">
+                    
+                    <td>{{item.naziv}}</td>
+                    <td><button class="btn btn-danger" (click)="izbrisi(item.kategorijaId)">Izbrisi</button></td>
+                    <td><button class="btn btn-primary" (click)="Uredi(item.kategorijaId)">Uredi</button></td>
+                </tr>
+            </ng-container>
+            
+            
+        </tbody>
+    </table>
+
+    <button class="btn btn-success" (click)="DodajIndex()">Dodaj</button>
+</div>

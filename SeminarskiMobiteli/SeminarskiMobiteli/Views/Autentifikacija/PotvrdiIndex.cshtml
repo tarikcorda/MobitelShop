@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Title"] = "PotvrdiIndex";
+
+    var x = (string)ViewData["kod"];
+ 
+}
+
+<div>
+
+    <div>
+
+        <p>Vaš kod je: @x </p>
+    </div>
+
+    <form asp-action="Potvrdi">
+
+
+        <div>
+            <div>
+                <label class="label">Unesite sms kod: </label>
+                <input class="input--style-4" type="text" name="kod">
+            </div>
+        </div>
+
+        <input type="submit" class="btn btn-outline-success btn-lg" value="Potvrdite" />
+    </form>
+
+
+</div>

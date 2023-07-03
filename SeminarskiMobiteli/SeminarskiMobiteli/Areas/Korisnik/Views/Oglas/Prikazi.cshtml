@@ -1,0 +1,148 @@
+﻿@model List<ClassLibrary.Models.Oglas>
+
+
+
+
+@*<table class="table table-striped">
+
+	<thead>
+		<tr>
+
+			<th>Naslov</th>
+			<th>Pozicija</th>
+			<th>Lokacija</th>
+			<th>Datum objave</th>
+			<th>Datum isteka</th>
+			<th>Aktivan</th>
+			<th>Akcije</th>
+
+		</tr>
+
+	</thead>
+	<tbody>
+		@foreach (var x in Model.Rows)
+		{
+		<tr>
+			<td>@x.Naslov</td>
+			<td>@x.Pozicija</td>
+			<td>@x.Lokacija</td>
+			<td>@x.DatumObjave.ToString("dd/MM/yyyy")</td>
+			<td>@x.DatumIsteka.ToString("dd/MM/yyyy")</td>
+			@if (x.AKtivan)
+			{
+			<td>Da</td>
+			}
+			else
+			{
+			<td>Ne</td>
+			}
+
+			 
+			<td><a class="btn btn-outline-primary btn-sm" asp-action="Detalji" asp-controller="Oglas" asp-route-id="@x.OglasId">
+				<i class="fa fa-pen"></i></a></td>
+
+		</tr>
+
+		}
+	</tbody>
+
+</table>*@
+ <div @*class="limiter"*@>
+    <div @*class="container-table100"*@>
+        <div @*class="wrap-table100"*@>
+            <div class="table100 ver1 m-b-110" style=" box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                <table data-vertable="ver1" class="table table-striped">
+                   
+
+                    <thead>
+                        <tr class="row100 head">
+
+                            <th class="column100 column2" data-column="column2">Naslov</th>
+                            <th class="column100 column3" data-column="column3">Lokacija</th>
+                            <th class="column100 column4" data-column="column4">Datum objave</th>
+                            <th class="column100 column5" data-column="column5">Datum isteka</th>
+                            <th class="column100 column4" data-column="column4">Prijavi se</th>
+                            <th class="column100 column5" data-column="column5">Detalji</th>
+
+                        </tr>
+                    </thead>
+
+
+
+                    @foreach (var x in Model)
+                    {
+                        <tbody>
+
+
+
+                            <tr class="row100">
+                                <td class="column100 column1" data-column="column1">@x.Naslov</td>
+                                <td class="column100 column2" data-column="column2">@x.Lokacija</td>
+                                <td class="column100 column3" data-column="column3">@x.DatumObjave.ToShortDateString()</td>
+                                <td class="column100 column4" data-column="column4">@x.DatumIsteka.ToShortDateString()</td>
+
+
+
+                                <td class="column100 column1" data-column="column1">
+                                    @if (!User.IsInRole("Korisnik"))
+                                    {
+                                        <a class="btn btn-success" asp-area="Korisnik" asp-action="Prijava" asp-route-id="@x.Id" type="submit" value="Prijavi" style="text-align:center;" >Prijavi se</a>
+
+
+                                    }
+                                    else
+                                    {
+                                        <a asp-area="Korisnik" asp-action="Prijava" asp-route-id="@x.Id" type="submit" value="Prijavi" class="btn btn-success" style="text-align:center;">Prijavi se</a>
+                                    }
+                                </td>
+                                <td class="column100 column1 btn btn-info" data-column="column1"><a asp-controller="Oglas" asp-action="DetaljiOglasa" asp-route-id="@x.Id" style="color:white !important;" type="submit"><i>Detalji</i></a></td>
+                            </tr>
+                        </tbody>
+
+                    }
+                </table>
+
+                @foreach (var x in Model)
+                {
+                    <div class="">
+                        <strong><a asp-area="Korisnik" asp-controller="Oglas" asp-action="Prikazi" asp-route-postId="@x.Id" data-toggle="tooltip" data-placement="top" title="Oglas"></a></strong>
+                    </div>
+
+
+                }
+
+
+      
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    (function ($) {
+        "use strict";
+        $('.column100').on('mouseover', function () {
+            var table1 = $(this).parent().parent().parent();
+            var table2 = $(this).parent().parent();
+            var verTable = $(table1).data('vertable') + "";
+            var column = $(this).data('column') + "";
+
+            $(table2).find("." + column).addClass('hov-column-' + verTable);
+            $(table1).find(".row100.head ." + column).addClass('hov-column-head-' + verTable);
+        });
+
+        $('.column100').on('mouseout', function () {
+            var table1 = $(this).parent().parent().parent();
+            var table2 = $(this).parent().parent();
+            var verTable = $(table1).data('vertable') + "";
+            var column = $(this).data('column') + "";
+
+            $(table2).find("." + column).removeClass('hov-column-' + verTable);
+            $(table1).find(".row100.head ." + column).removeClass('hov-column-head-' + verTable);
+        });
+
+
+    })(jQuery);
+</script>

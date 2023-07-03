@@ -1,0 +1,30 @@
+﻿@model SeminarskiMobiteli.ViewModel.KorpaIndexVM
+
+<div id="KorpaProizvodi">
+    @Html.Partial("_KorpaProizvodi",Model)
+</div>
+@section Scripts{<script>
+
+    $("#KorpaProizvodi").on("click",".KorpaProizvodKolicinaPlus",function(){
+        var id=$(this).attr("data-id")
+        ChangeKolicina(id,true)
+    })
+     $("#KorpaProizvodi").on("click",".KorpaProizvodKolicinaMinus",function(){
+        var id=$(this).attr("data-id")
+        ChangeKolicina(id,false)
+    })
+
+   
+    function ChangeKolicina(id, povecaj){
+         $.ajax({
+        url:"/Korpa/AzurirajKorpu/",
+        data:{proizvodId:id,povecaj},
+        method:"post",
+        success:(data)=>{
+        $("#KorpaProizvodi").html(data);
+        
+        }
+        })
+    }
+
+</script>}

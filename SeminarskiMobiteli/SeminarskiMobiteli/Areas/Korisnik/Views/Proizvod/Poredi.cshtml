@@ -1,0 +1,58 @@
+@model SeminarskiMobiteli.ViewModel.ProizvodPorediVM
+
+ 
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>Slika</td>
+                <td>Naziv</td>
+                <td>Cijena</td>
+                <td>Kamera</td>
+                <td>Interna memorija</td>
+                <td>Ram memorija</td>
+
+            </tr>
+
+        </thead>
+        <tbody>
+   <tr>
+     <td><img src="~/Slike/@Model.Proizvod1.imageLocation" width="75" height="75" class="img rounded-circle"/></td>
+        <td>@Model.Proizvod1.NazivProizvoda</td>
+        <td>@Model.Proizvod1.Cijena</td>
+        <td>@Model.Proizvod1.Kamera</td>
+        <td>@Model.Proizvod1.Memorija</td>
+        <td>@Model.Proizvod1.RamMemorija</td>
+
+
+
+        </tr>
+    
+    
+        @if (Model.Proizvod2 == null)
+        {
+            
+                @foreach (var item in Model.Proizvodi)
+                {
+                    
+                        <h6>@item.NazivProizvoda</h6>
+                        <a href="/Korisnik/Proizvod/Poredi?proizvodId1=@Model.Proizvod1.ProizvodID&proizvodId2=@item.ProizvodID" class="btn btn-primary">Poredi</a>
+                    
+                }
+        }
+        else
+        {
+            <tr>
+             <td><img src="~/Slike/@Model.Proizvod2.imageLocation" width="75" height="75" class="img rounded-circle"/></td>
+            <td>@Model.Proizvod2.NazivProizvoda</td>
+            <td>@Model.Proizvod2.Cijena</td>
+            <td>@Model.Proizvod2.Kamera</td>
+            <td>@Model.Proizvod2.Memorija</td>
+            <td>@Model.Proizvod2.RamMemorija</td>
+            </tr>
+        }
+    
+    </tbody>
+    </table>
+
+

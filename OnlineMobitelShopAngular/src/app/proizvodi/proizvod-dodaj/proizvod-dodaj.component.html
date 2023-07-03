@@ -1,0 +1,41 @@
+<div class="div-dodaj-wrapper">
+    
+<label>Naziv :</label>
+<input [(ngModel)]="naziv" type="string"/><br>
+
+<ng-container *ngIf="obj">
+    
+    <label>Kategorija: </label>
+<select [(ngModel)]="kategorijaId" type="number">
+<option [value]="item.value" *ngFor="let item of obj.kategorija">{{item.text}}</option>
+</select>
+
+<br>
+<label>Proizvodjac: </label>
+<select [(ngModel)]="proizvodjacId" type="number">
+    <option [value]="item.value" *ngFor="let item of obj.proizvodjac">{{item.text}}</option>
+    </select>
+    <br>
+    <label>Uvoznik: </label>
+    <select [(ngModel)]="uvoznikId" type="number">
+        <option [value]="item.value" *ngFor="let item of obj.uvoznik">{{item.text}}</option>
+        </select>
+        <br>
+        
+</ng-container>
+<label>Cijena:</label>
+<input [(ngModel)]="cijena" type="number"/><br>
+<label>Kolicina:</label>
+<input [(ngModel)]="kolicina" type="number"/><br>
+<label>Ram memorija:</label>
+<input [(ngModel)]="ramMemorija" type="string"/><br>
+<label>Velicina ekrana:</label>
+<input [(ngModel)]="velicinaEkrana" type="string"/><br>
+<label>Kamera:</label>
+<input [(ngModel)]="kamera" type="string"/><br>
+<label>Interna memorija:</label>
+<input [(ngModel)]="memorija" type="string"/><br>
+
+<button  class="btn btn-success" (click)="spremi()">Dodaj</button>
+
+</div>

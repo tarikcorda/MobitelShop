@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+    <html>
+<head>
+<style>
+#proizvodiTabela{
+
+border: 1px solid;
+
+
+}
+tr, th ,td {
+  border: 1px solid rgb(88, 88, 88);
+  padding: 0.5rem;
+  text-align: center;
+}
+</style>
+
+</head>
+<body onload="getMobiteli()">
+    <h2>Mobiteli</h2>
+    <textarea id="pretraga" placeholder="Upisite naziv telefona"></textarea>
+    <br>
+    <input type = "button" onclick = "getMobiteli()" value = "Pretrazi">
+  
+    
+    <table id="proizvodiTabela" class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Naziv</th>
+                <th>Kategorija</th>
+                <th>Cijena</th>
+                <th>Kolicina</th>
+                <th>Velicina ekrana</th>
+                <th>Memorija</th>
+                <th>Ram memorija</th>
+                <th>Kamera</th>
+
+
+                
+            </tr>
+        </thead>
+        <tbody>
+
+            
+        </tbody>
+    </table>
+
+</body>
+
+<script>
+
+function getMobiteli() {
+
+
+    var pretragaValue=document.getElementById("pretraga").value;
+    var mojUrl = "https://localhost:44381/Pretrazi/Ajax?naziv=" + pretragaValue;
+
+    fetch(mojUrl, {
+        method: 'GET', //u dokumentaciji API-a (u swaggeru) piše da je metoda tipa GET
+        headers: {
+            'Content-Type': 'application/json', // u dokumentaciji API-a piše da je metoda prima JSON
+             
+        },
+    })
+    .then(response => {
+                    
+                    return response.json();// u dokumentaciji API-a piše da metoda vraća JSON
+                })
+        
+        .then(r => {
+            
+            dodajRowsMobiteli(r);
+            console.log(r);
+            
+        })
+        ;
+  
+}
+
+function dodajRowsMobiteli(n) {
+
+document.querySelector("#proizvodiTabela tbody").innerHTML = "";
+for (var i = 0; i < n.length; i++) {
+    var row = n[i];
+
+    var tr = document.createElement('tr');
+    tr.id = "red-" + row.id;
+    document.querySelector("#proizvodiTabela tbody").appendChild(tr);
+
+    var td1 = document.createElement('td');
+    var td2 = document.createElement('td');
+    var td3 = document.createElement('td');
+    var td4 = document.createElement('td');
+    var td5 = document.createElement('td');
+    var td6 = document.createElement('td');
+    var td7 = document.createElement('td');
+    var td8 = document.createElement('td');
+
+   
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    tr.appendChild(td3);
+    tr.appendChild(td4);
+    tr.appendChild(td5);
+    tr.appendChild(td6);
+    tr.appendChild(td7);
+    tr.appendChild(td8);
+
+   
+    td1.innerText = row.naziv;
+    td2.innerText = row.kategorija;
+    td3.innerText = row.cijena;
+    td4.innerText = row.kolicina;
+    td5.innerText = row.velicinaEkrana;
+    td6.innerText = row.memorija;
+    td7.innerText = row.ramMemorija;
+    td8.innerText = row.kamera;
+    
+    
+
+    
+}
+}
+</script>
+
+
+
+
+
+
+    </html>

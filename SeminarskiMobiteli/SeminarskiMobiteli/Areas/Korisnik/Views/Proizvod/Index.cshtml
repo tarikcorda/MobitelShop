@@ -1,0 +1,56 @@
+﻿@model SeminarskiMobiteli.ViewModel.AdministratorProizvodVM
+
+
+<form method="get" asp-action="Index">
+
+    <div class="form-group">
+        <div>
+            <span>Pretrazi Mobilne proizvode:</span>
+            <input style="padding: 5px; border-radius:25px; border:1px solid lightblue;" type="text" asp-for="Naziv" />
+            <input class="btn btn-info" type="submit" value="Pretrazi" />
+
+        </div>
+    </div>
+</form>
+
+<a asp-action="Index" asp-controller="Pretraga" class="btn btn-success" asp-area="">Pretraga po karakteristikama</a>
+
+
+<table class="table table-striped">
+
+	<thead>
+		<tr>
+			<th>Slika</th>
+			<th>Naziv</th>
+			<th>Kategorija</th>
+			<th>Cijena</th>
+			<th>Recenzija</th>
+
+
+		</tr>
+
+	</thead>
+	<tbody>
+		@foreach (var x in Model.Rows)
+		{
+			<tr>
+				<td><img src="~/Slike/@x.imageLocation" width="75" height="75" class="img rounded-circle"/></td> 
+				<td>@x.Naziv</td>
+				<td>@x.Kategorija</td>
+				<td>@x.Cijena</td>
+				<td><a asp-area="Korisnik" asp-controller="Recenzija" asp-action="Index" asp-route-id="@x.MobitelId" class="btn btn-dark">Recenzija</a></td>
+				<td><form asp-area="" asp-controller="Korpa" asp-action="Dodaj" method="post">
+					<input name="ProizvodId" value="@x.MobitelId" hidden>
+				<input type="submit" value="Dodaj u korpu" class="">
+				<a class="btn btn-success" href="/Korisnik/Proizvod/Poredi?proizvodId1=@x.MobitelId">Poredi</a>
+				</form>
+				
+				</td>
+				
+			</tr>
+
+		}
+	</tbody>
+
+</table>
+ 

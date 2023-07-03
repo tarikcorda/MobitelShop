@@ -1,0 +1,25 @@
+﻿@model SeminarskiMobiteli.ViewModel.AdminProizvodjacDodajVM
+<form asp-action="Snimi">
+
+
+
+	<div class="form-group">
+		<label>Drzava :</label>
+		<div>
+			<select class="form-control" asp-for="DrzavaId" asp-items="@Model.Drzava"></select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label>Naziv :</label>
+		<div>
+			<input type="text" name="Naziv" class="form-control" />
+		</div>
+
+	</div>
+	
+
+
+
+	<input type="submit" value="Snimi" class="btn btn-success" />
+
+</form>

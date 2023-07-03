@@ -1,0 +1,218 @@
+﻿@using ClassLibrary.Models
+@using SeminarskiMobiteli.ViewModel
+@model SeminarskiMobiteli.ViewModel.KorisnikDodajVM
+
+
+<script src="~/js/moment.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+
+
+<script src="https://cdn.tiny.cloud/1/hp7m5by19tqm6brtnalii71vu84aoxh4xf9hg03q3vx74yev/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+<link rel="stylesheet" href="~/css/OglasLayout.css" asp-append-version="true" />
+
+
+<section class="bg-[#F4F7FF] py-14 lg:py-20">
+    <div class="container">
+        <div class="flex flex-wrap -mx-4">
+            <div class="w-full px-4">
+
+                    <div class="not-layout">
+                        <h4 class="w-full rounded-md border bordder-primary py-3 px-5 text-center text-base text-white cursor-pointer hover:shadow-md transition duration-300 ease-in-out" style="background-color:	#242526;" >Registracija</h4>
+                        <hr />
+                   </div>
+
+                <div class="max-w-[525px] mx-auto text-center bg-white rounded-lg relative overflow-hidden py-14 px-8 sm:px-12 md:px-[60px] wow fadeInUp" data-wow-delay=".15s">
+                    <div class="mb-10 text-center">
+                        <a href="javascript:void(0)" class="inline-block max-w-[160px] mx-auto">
+                        </a>
+                    </div>
+                    
+
+            
+
+                    <form action="/Korisnik/Snimi" id="reg">
+
+
+                              <div class="mb-6">
+                     <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label class="label">Spol</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field is-narrow">
+                                <div class="control">
+                                    <div>
+                                        <select asp-for="Spol" class="w-full rounded-md border bordder-[#E9EDF4] py-3 px-5 bg-[#FCFDFE] text-base text-body-color placeholder-[#ACB6BE] outline-none focus-visible:shadow-none focus:border-primary transition" >
+                                            <option value="M" class="text-center"> Muško </option>
+                                            <option value="Z" class="text-center"> Žensko </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+
+
+                           <div class="mb-6">
+                            <label> Ime: </label>
+                            <div>
+                                <input asp-for="Ime"  class="w-full rounded-md border bordder-[#E9EDF4] py-3 px-5 bg-[#FCFDFE] text-base text-body-color placeholder-[#ACB6BE] outline-none focus-visible:shadow-none focus:border-primary transition" />
+                                <span asp-validation-for="Ime"   class="text-danger"></span>
+                            </div>
+                        </div>
+
+                           <div class="mb-6">
+                            <label> Prezime: </label>
+                            <div>
+                                <input asp-for="Prezime"  class="w-full rounded-md border bordder-[#E9EDF4] py-3 px-5 bg-[#FCFDFE] text-base text-body-color placeholder-[#ACB6BE] outline-none focus-visible:shadow-none focus:border-primary transition"  />
+                                <span asp-validation-for="Prezime"   class="text-danger"></span>
+                            </div>
+                        </div>
+                             <div class="mb-6">
+                            <label> Email: </label>
+                            <div>
+                                <input asp-for="Email"  class="w-full rounded-md border bordder-[#E9EDF4] py-3 px-5 bg-[#FCFDFE] text-base text-body-color placeholder-[#ACB6BE] outline-none focus-visible:shadow-none focus:border-primary transition"  />
+                                <span asp-validation-for="Email"   class="text-danger"></span>
+                             
+                            </div>
+                        </div>
+                            <div class="mb-6">
+                            <label> Broj telefona: </label>
+                            <div>
+                                <input asp-for="BrojTelefona"  class="w-full rounded-md border bordder-[#E9EDF4] py-3 px-5 bg-[#FCFDFE] text-base text-body-color placeholder-[#ACB6BE] outline-none focus-visible:shadow-none focus:border-primary transition"   />
+                                <span asp-validation-for="BrojTelefona"   class="text-danger"></span>
+                            </div>
+                        </div>
+
+
+                          <div class="mb-6">
+                            <label> Korisnicko ime: </label>
+                            <div>
+                                <input asp-for="KorisnickoIme"  class="w-full rounded-md border bordder-[#E9EDF4] py-3 px-5 bg-[#FCFDFE] text-base text-body-color placeholder-[#ACB6BE] outline-none focus-visible:shadow-none focus:border-primary transition"   />
+                                <span asp-validation-for="KorisnickoIme"   class="text-danger"></span>
+                            </div>
+                        </div>
+
+                         <div class="mb-6">
+                            <label> Lozinka: </label>
+                            <div>
+                                <input asp-for="Lozinka" class="w-full rounded-md border bordder-[#E9EDF4] py-3 px-5 bg-[#FCFDFE] text-base text-body-color placeholder-[#ACB6BE] outline-none focus-visible:shadow-none focus:border-primary transition"   />
+                                <span asp-validation-for="Lozinka" class="text-danger"></span>
+                            </div>
+                        </div>
+
+ 
+                        <div class="mb-6">
+                            <label> Datum registracije : </label>
+                            <div>
+                               
+                                  <input value="@DateTime.UtcNow.ToString("dddd dd/MM/yyyy")" disabled class="form-control"  />
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <label> Pretplacen: </label>
+                            <div>
+                                <input asp-for="Pretplacen" class="w-full rounded-md border bordder-[#E9EDF4] py-3 px-5 bg-[#FCFDFE] text-base text-body-color placeholder-[#ACB6BE] outline-none focus-visible:shadow-none focus:border-primary transition" />
+                                <span asp-validation-for="Pretplacen" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <label>  Drzava : </label>
+                            <div>
+                                <div>
+                                    <select class="form-control text-center" asp-for="SjedisteID" asp-items="@Model.Sjediste"></select>
+                                </div>
+                            </div>
+                        </div>
+
+
+                  
+
+                       
+
+                        <div class="mb-10" style="padding-top:5%;">
+          @*                <a class="w-full rounded-md border bordder-primary py-3 px-5 bg-primary text-base text-white cursor-pointer hover:shadow-md transition duration-300 ease-in-out" asp-controller="Korisnik" asp-action="Dodaj" asp-area="">Registruj se</a> *@ 
+                             <input type="submit" value="Registruj se" class="w-full rounded-md border bordder-primary py-3 px-5 bg-primary text-base text-white cursor-pointer hover:shadow-md transition duration-300 ease-in-out" />
+                        </div>
+                    </form>
+
+
+
+
+                  @*  @if (error_poruka != null)
+                    {
+                        <br />
+                        <div class="alert alert-danger" role="alert">
+                            <strong>@error_poruka</strong>
+                        </div>
+                    }*@
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+
+    $(function () {
+        $("#reg").validate({
+            rules: {
+                Ime: {
+                    required: true
+                },
+                Prezime: {
+                    required: true
+                },
+                Spol: {
+                    required: true
+                },
+                KorisnickoIme: {
+                    required: true
+                },
+                
+                Lozinka: {
+                    required: true,
+                    minlength: 4,
+                    passwordRegex: true
+                }
+                
+            },
+            messages: {
+                Ime: "Molimo unesite vaše ime.",
+                Prezime: "Molimo unesite vaše prezime.",
+                Spol: "Molimo odaberite vaš spol.",
+                KorisnickoIme: "Polje je obavezno.",
+                Lozinka: {
+                    required: "Polje je obavezno.",
+                    minlength: "Lozinka mora sadržavati najmanje 4 karaktera.",
+                    passwordRegex: "Lozinka mora sadržavati mala i velika slova, brojeve i bar jedan specijalni znak."
+                }
+               
+            },
+            submitHandler: function (form) {
+                form.submit();
+            },
+            highlight: function (element, errorClass, validClass) {
+                return false;
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                return false;
+            }
+        });
+
+        jQuery.validator.addMethod("passwordRegex", function (value, element) {
+            return this.optional(element) || /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()%&{}/]).{8,}$/g.test(value);
+        }, "Lozinka mora sadržavati mala i velika slova, brojeve i bar jedan specijalni znak.");
+
+     
+
+    });
+</script>

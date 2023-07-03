@@ -1,0 +1,35 @@
+﻿@model SeminarskiMobiteli.ViewModel.KorisnikNarudzbaVM
+
+
+
+<div>
+    <form asp-action="SnimiNarudzbu">
+        <input  asp-for="KorisnikId" value="@Model.KorisnikId" hidden/>
+        <div>
+        <label class="control-label" asp-for="DostavljacId">Dostavljac</label>
+        <select class="form-control" asp-for="DostavljacId" asp-items="@Model.Dostavljac"></select>
+        </div>
+        
+         <div>
+        <label class="control-label" asp-for="KorinsikImePrezime">Korinsik:</label>
+        <input class="form-control" asp-for="KorinsikImePrezime" values="@Model.KorinsikImePrezime">
+        </div>
+        <div>
+        <label class="control-label" asp-for="BrojTelefona">Broj telefona:</label>
+        <input class="form-control" asp-for="BrojTelefona" values="@Model.BrojTelefona">
+        </div>
+        <div>
+         <label class="control-label" asp-for="Email">E mail:</label>
+        <input class="form-control" asp-for="Email" values="@Model.Email">
+        </div>
+         <div>
+         <label class="control-label" asp-for="Adresa">Adresa:</label>
+        <input class="form-control" asp-for="Adresa" values="@Model.Adresa">
+        </div>
+        <br />
+        <input  type="submit" value="Potvrdi narudzbu" class="btn btn-success"/>
+    </form>
+    <a class="btn btn-danger" asp-action="Back" asp-controller="Proizvod" asp-area="Korisnik">Otkazi narudzbu</a>
+
+
+</div>

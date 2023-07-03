@@ -1,0 +1,48 @@
+﻿@using ClassLibrary.Models
+@using SeminarskiMobiteli.ViewModel
+@{ 
+
+    KorisnikIndexVM ulazniModel = (KorisnikIndexVM)ViewData["ulazniModel"];
+
+}
+
+<h2>Prikaz korisnika</h2>
+
+<table class="table table-striped">
+
+    <thead>
+        <tr>
+            
+            <th>Tip korisnika</th>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Spol</th>
+            <th>Datum registracije</th>
+            <th>Pretplacen</th>
+           
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var x in ulazniModel.Rows)
+        {
+            <tr>
+                <td>@x.TipKorisnika</td>
+                <td>@x.Ime</td>
+                <td>@x.Prezime</td>
+                <td>@x.Spol</td>
+                <td>@x.DatumRegistracije</td>
+                <td>@(x.Pretplacen?"DA":"NE")</td>
+				<td>
+					<a href="/Korisnik/Detalji?id=@x.KorisnikID" class="btn btn-outline-success">Detalji</a>
+					<a href="/Korisnik/Obrisi?id=@x.KorisnikID" class="btn btn-danger">Obrisi</a>
+				</td>
+            </tr>
+
+        }
+    </tbody>
+
+</table>
+<a href="/Korisnik/Dodaj" class="btn btn-primary">Dodaj</a>
+
+ 

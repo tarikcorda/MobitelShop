@@ -1,0 +1,29 @@
+﻿@model SeminarskiMobiteli.ViewModel.NarudzbePrikaziVM
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Naziv: </td>
+            <td>Datum: </td>
+            <td>Cijena: </td>
+            <td>Kolicina: </td>
+            <td>Ukupno : </td>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Rows)
+       {
+           <tr>
+               <td>@item.Naziv</td>
+               <td>@item.Datum</td>
+               <td>@item.Cijena</td>
+               <td>@item.Kolicina</td>
+               <td>@item.Ukupno</td>
+           </tr>
+       }
+    </tbody>
+
+
+</table>

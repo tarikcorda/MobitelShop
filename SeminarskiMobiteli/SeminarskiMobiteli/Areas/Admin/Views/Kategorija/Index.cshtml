@@ -1,0 +1,32 @@
+﻿@model SeminarskiMobiteli.ViewModel.AdminKategorijaVM
+
+<h2>Prikaz kategorija </h2>
+
+
+<table class="table table-striped">
+
+	<thead>
+		<tr>
+
+		 
+			<th>Kategorija</th>
+			 
+
+
+		</tr>
+
+	</thead>
+	<tbody>
+		@foreach (var x in Model.Rows)
+		{
+			<tr>
+				 
+				<td>@x.Naziv</td>
+				 
+			</tr>
+
+		}
+	</tbody>
+
+</table>
+<a asp-action="Dodaj" asp-controller="Kategorija" class="btn btn-success">Dodaj</a>

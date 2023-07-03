@@ -1,0 +1,36 @@
+﻿@model List<SeminarskiMobiteli.ViewModel.AdministratorProizvodVM.Row>
+
+    <table class="table table-striped">
+
+        <thead>
+            <tr>
+                <th>Slika</th>
+                <th>Naziv</th>
+                <th>Kategorija</th>
+                <th>Cijena</th>
+                <th>Kolicina</th>
+             
+
+
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var x in Model)
+            {
+                
+            <tr>
+                <td><img src="~/Slike/@x.imageLocation" width="75" height="75" class="img rounded-circle"/></td> 
+                <td>@x.Naziv</td>
+                <td>@x.Kategorija</td>
+                <td>@x.Cijena</td>
+                <td>@x.Kolicina</td>
+               
+
+            </tr>
+                
+            }
+        </tbody>
+
+    </table>
+   

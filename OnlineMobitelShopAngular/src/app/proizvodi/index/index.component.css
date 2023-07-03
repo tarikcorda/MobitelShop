@@ -1,0 +1,14 @@
+.index-wrapper{
+    padding: 10px;
+    align-self: auto;
+    text-align: center;
+    margin: 10px;
+}
+
+.btn-primary {
+    margin: 0 20px 0 20px;
+}
+
+.btn-success {
+    width: 60%;
+}

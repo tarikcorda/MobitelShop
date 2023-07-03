@@ -1,0 +1,42 @@
+﻿@model SeminarskiMobiteli.ViewModel.RecenzijaDodajKorisnikVM
+
+	
+ 
+<strong style=" font-family: Castellar;
+        margin-left:25%;
+        margin-bottom:20px;
+        font-size: 30px;"
+>
+	Ostavite recenziju
+</strong>
+ <form asp-action="Snimi" method="post">
+	<input asp-for="ProizvodID" value="@Model.ProizvodID"  hidden />
+
+	<div class="container pb-cmnt-container" style="align-content:center">
+		<div class="row">
+			<div class="col-md-10 col-md-offset-5 ">
+				<div class="panel panel-info">
+					<div class="panel-body">
+						<br />
+						<br />
+						<br />
+						<br />
+						<textarea asp-for="Komentar" placeholder="Napišite Vaš komentar ovdje!" class="pb-cmnt-textarea" style="width:80%;"></textarea>
+						<br />
+
+					</div>
+					<div>
+						 
+						<label>Ocjena</label>
+						<input asp-for="Ocjena" type="number" min="1" max="10"/>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br />
+		<input type="submit" value="Snimi" class="btn btn-info" />
+		<br />
+	</div>
+	 
+
+</form>

@@ -1,0 +1,33 @@
+﻿@model SeminarskiMobiteli.ViewModel.AdminProizvodjac
+
+<h2>Prikaz proizvodjaca </h2>
+
+
+<table class="table table-striped">
+
+	<thead>
+		<tr>
+
+			<th>Naziv</th>
+			<th>Drzava</th>
+
+
+
+		</tr>
+
+	</thead>
+	<tbody>
+		@foreach (var x in Model.Rows)
+		{
+			<tr>
+
+				<td>@x.Naziv</td>
+				<td>@x.Drzava</td>
+
+			</tr>
+
+		}
+	</tbody>
+
+</table>
+<a asp-action="Dodaj" asp-controller="Proizvodjac" class="btn btn-success">Dodaj</a>

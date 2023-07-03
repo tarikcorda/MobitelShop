@@ -1,0 +1,28 @@
+﻿@model SeminarskiMobiteli.ViewModel.AdministratorProizvodVM
+
+
+
+<input style="padding: 5px; border-radius:25px; border:1px solid lightblue;" type="text" id="search"/>
+<button class="btn btn-success" id="btnPretrazi">Pretrazi</button>
+
+<div id="pretraga">
+@{
+        Html.RenderPartial("_Proizvodi", @Model.Rows);
+    }
+</div>
+@section Scripts{
+   
+    <script>
+        $("#btnPretrazi").click(function(){
+        var value=$("#search").val();
+        $.get("/Pretraga/Ajax?naziv="+ value,function(data){
+        $("#pretraga").html(data);
+        
+        })
+        
+        })
+
+</script>
+
+
+}
